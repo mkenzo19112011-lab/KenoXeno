@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Links</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+    .nama-rgb {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    
+    /* Efek Gradasi Warna */
+    background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400% 400%;
+    
+    /* Animasi Gerak Pelangi */
+    animation: rgbMove 5s linear infinite;
+    
+    /* Tambahin glow biar makin nyala */
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+}
+
+@keyframes rgbMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+    .gallery-container {
+    width: 100%;
+    max-width: 350px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom sejajar */
+    gap: 10px;
+}
+
+.gallery-item {
+    aspect-ratio: 1 / 1; /* Biar kotak sempurna */
+    background: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #333;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    border-color: #8a2be2;
+}
+    /* Efek Fade In untuk seluruh halaman */
+body {
+    animation: fadeInPage 1.2s ease-out forwards;
+}
+
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Muncul dari bawah sedikit */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Biar lebih pro, kasih delay sedikit buat tombol-tombolnya */
+.links-container {
+    animation: fadeInPage 1.5s ease-out forwards;
+}
+    /* Efek Bintang Jatuh */
+.night {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotateZ(45deg);
+  z-index: -1;
+  pointer-events: none;
+}
+/* 1. Reset Container Night */
+.night {
+  position: fixed; /* Tetap di layar walau di-scroll */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transform: rotateZ(45deg); /* Memiringkan seluruh area bintang */
+  z-index: -1;
+  pointer-events: none;
+}
+
+.shooting_star {
+  position: absolute;
+  /* Kita hilangkan top 50% left 50% yang tadi */
+  height: 2px;
+  background: linear-gradient(-45deg, #5f9fff, rgba(0, 0, 255, 0));
+  border-radius: 999px;
+  filter: drop-shadow(0 0 6px #699bff);
+  animation: tail 3000ms ease-in-out infinite, shooting 3000ms ease-in-out infinite;
+}
+
+/* 2. Sebar Bintang ke Seluruh Area (Gunakan posisi minus agar muncul dari luar layar) */
+.shooting_star:nth-child(1) { top: 0%; left: 0%; animation-delay: 0s; }
+.shooting_star:nth-child(2) { top: 20%; left: 20%; animation-delay: 1000ms; }
+.shooting_star:nth-child(3) { top: 40%; left: -10%; animation-delay: 2000ms; }
+.shooting_star:nth-child(4) { top: 60%; left: 10%; animation-delay: 1500ms; }
+.shooting_star:nth-child(5) { top: 80%; left: -20%; animation-delay: 2500ms; }
+.shooting_star:nth-child(6) { top: 10%; left: 50%; animation-delay: 500ms; }
+
+/* 3. Perbesar Jarak Jatuhnya */
+@keyframes shooting {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(1200px); } /* Dibikin jauh biar lewat layar */
+}
+
+
+@keyframes tail {
+  0% { width: 0; }
+  30% { width: 100px; }
+  100% { width: 0; }
+}
+
+@keyframes shining {
+  0% { width: 0; }
+  50% { width: 30px; }
+  100% { width: 0; }
+}
+
+@keyframes shooting {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(300px); }
+}
+        /* 1. RESET & BACKGROUND */
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #080808; 
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
+            margin: 0;
+        }
+
+        /* 2. PROFIL */.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    /* Border tipis warna ungu gelap */
+    border: 2px solid #8a2be2; 
+    margin-bottom: 15px;
+    object-fit: cover;
+    /* Efek cahaya ungu di sekitar foto */
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.6);
+    /* Animasi napas (glow tipis) */
+    animation: glowPulse 2s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 10px rgba(138, 43, 226, 0.4); }
+    50% { box-shadow: 0 0 25px rgba(138, 43, 226, 0.8); }
+    100% { box-shadow: 0 0 10px rgba(138, 43, 226, 0.4); }
+}
+ 
+        h1 { font-size: 1.2rem; margin-bottom: 25px; color: #fff; }
+
+        /* 3. TOMBOL UTAMA */
+        .links-container {
+            width: 100%;
+            max-width: 350px;
+        }
+        .link-card {
+            background: #1a1a1a;
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 16px;
+            margin-bottom: 12px;
+            border-radius: 50px;
+            text-align: center;
+            font-weight: 600;
+            border: 1px solid #333;
+            transition: all 0.2s ease; /* Biar smooth pas diklik */
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* 4. ANIMASI KLIK (MENDEM) */
+        .link-card:active {
+            transform: scale(0.92); /* Efek menciut pas diteken */
+            background: #252525;
+        }
+
+        /* 5. WARNA HOVER (OPSIONAL) */
+        .ig:hover { border-color: #e4405f; color: #e4405f; }
+        .tiktok:hover { border-color: #ff0050; color: #ff0050; }
+        .wa:hover { border-color: #25d366; color: #25d366; }
+        .wa-info {
+    font-size: 0.75rem;
+    color: #e0e0e0;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-style: italic;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(138, 43, 226, 0.6);
+    opacity: 0.8;
+    animation: pulse 2s infinite; /* Efek kedip pelan biar narik mata */
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+.wa-info {
+    font-size: 11px; /* Ukuran kecil tapi kebaca */
+    color: #df99ff; /* Warna ungu muda biar senada */
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(223, 153, 255, 0.8);
+    animation: kedip 2s infinite ease-in-out;
+}
+
+@keyframes kedip {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+    </style>
+</head>
+<body>
+  <div class="night">
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+</div>
+  
+<div class="profile-container" style="text-align: center;">
+    <img src="https://i.postimg.cc/KY1yHPYp/Screenshot-20260318-012527.png" alt="Profile" class="profile-img">
+    
+ <h1 class="nama-rgb">@kenotkidding</h1>
+    
+    <p class="bio">Jasa Edit • Desain • Murah & Cepat <span style="color: #ffde00;">⚡</span></p>
+</div>
+  
+
+    <div class="links-container">
+        <a href="https://www.instagram.com/kenoproject?igsh=d3VxOWEwNXA4d2Fl" class="link-card ig" target="_blank">Instagram</a>
+        <a href="https://tiktok.com/@kenotkidding" class="link-card tiktok" target="_blank">TikTok</a>
+        <p class="wa-info">Pricelist is on my WhatsApp Channel!</p>
+        <a href="https://whatsapp.com/channel/0029VbCbZZ4Gk1FmmbqLBy2K" class="link-card wa" target="_blank">WhatsApp Channel</a>
+    </div>
+
+<script>
+document.querySelectorAll('.link-card').forEach(button => {
+    button.addEventListener('click', function(e) {
+        let x = e.clientX - e.target.offsetLeft;
+        let y = e.clientY - e.target.offsetTop;
+        
+        let ripples = document.createElement('span');
+        ripples.style.left = x + 'px';
+        ripples.style.top = y + 'px';
+        ripples.style.position = 'absolute';
+        ripples.style.width = '2px';
+        ripples.style.height = '2px';
+        ripples.style.background = 'rgba(255, 255, 255, 0.3)';
+        ripples.style.borderRadius = '50%';
+        ripples.style.transform = 'translate(-50%, -50%)';
+        ripples.style.animation = 'ripple 0.6s linear';
+        ripples.style.pointerEvents = 'none';
+        
+        this.style.position = 'relative';
+        this.style.overflow = 'hidden';
+        this.appendChild(ripples);
+        
+        setTimeout(() => { ripples.remove() }, 600);
+    });
+});
+</script>
+
+<style>
+@keyframes ripple {
+    0% { width: 0px; height: 0px; opacity: 0.5; }
+    100% { width: 500px; height: 500px; opacity: 0; }
+}
+</style></body>
+</html>
